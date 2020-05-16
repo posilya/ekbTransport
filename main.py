@@ -1,3 +1,4 @@
+#-*-coding=utf-8-*-
 import webapp2
 
 class MainPage(webapp2.RequestHandler):
@@ -8,7 +9,7 @@ class MainPage(webapp2.RequestHandler):
             <head>
                 <meta charset="UTF-8">
                 <title>Простейший сайт на Python</title>
-                <style>* {font-family: Arial, Helvetica, sans-serif;}</style>
+                <style>body {font-family: Helvetica, sans-serif;}</style>
             </head>
             <body>
                 <div style="text-align: center; margin-top:70px">
@@ -20,6 +21,4 @@ class MainPage(webapp2.RequestHandler):
             </html>
         ''')
 
-app = webapp2.WSGIApplication([
-    ('/', MainPage),
-], debug=True)
+app = webapp2.WSGIApplication([('/', MainPage),], debug=True)
