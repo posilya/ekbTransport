@@ -3,15 +3,19 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /robots.txt
-  static_files: static/robots.txt
-  upload: static/robots.txt
+- url: /(.*)
+  static_files: \1
+  upload: /(.*)
 
-- url: /favicon.ico
-  static_files: static/favicon.ico
-  upload: static/favicon.ico
+- url: /(.*)/
+  static_files: /\1/index.html
+  upload: /.*/index.html
 
-- url: /.*
-  script: main.app
-  secure: always
-  redirect_http_response_code: 301
+- url: /(.*)$
+  static_files: /\1
+  upload: /.*
+
+#- url: /.*
+#  script: main.app
+#  secure: always
+#  redirect_http_response_code: 301
